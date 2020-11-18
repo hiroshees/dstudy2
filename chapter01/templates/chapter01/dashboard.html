@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block title%}ダッシュボード{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-3">{{title}}</h1>
+    <div>
+        {{user.email}} さん、こんにちは
+    </div>
+    <p><a href="{% url 'chapter01:logout' %}">ログアウト</a></p>
+</div>
+{% endblock %}

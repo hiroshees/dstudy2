@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block title%}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="h1 m-3 font-weight-normal text-center">{{title}}</h1>
+        <form action="{% url 'chapter01:user_update' user.pk %}" method="post" novalidate>
+            {% bootstrap_form form  layout='horizontal' %}
+            {% csrf_token %}
+            <hr>
+            <button class="btn btn-primary" type="submit">更新</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block title%}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="h1 m-3 font-weight-normal text-center">{{title}}</h1>
+        <table class="table">
+            <tr>
+                <th>ユーザー名</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>姓</th>
+                <td>{{ user.last_name|default:"(no data)" }}</td>
+            </tr>
+            <tr>
+                <th>名</th>
+                <td>{{ user.first_name|default:"(no data)" }}</td>
+            </tr>
+        </table>
+        <a href="{% url 'chapter01:user_update' user.pk%}" class="btn btn-primary">更新はこちらから</a>
+    </div>
+    <hr>
+</div>
+{% endblock %}

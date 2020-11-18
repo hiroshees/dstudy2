@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'chapter01:dashboard'%}">Chapter01</a>
+  <button 
+    class="navbar-toggler" 
+    type="button" 
+    data-toggle="collapse" 
+    data-target="#navbarNav" 
+    aria-controls="navbarNav" 
+    aria-expanded="false" 
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ユーザ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'chapter01:user_detail' user.pk %}">ユーザ情報</a>
+          <a class="dropdown-item" href="{% url 'chapter01:user_update' user.pk %}">ユーザ更新</a>
+          <a class="dropdown-item" href="{% url 'chapter01:user_password' %}">パスワード変更</a>
+          <a class="dropdown-item" href="{% url 'chapter01:password_reset' %}">パスワード再設定</a>
+          <a class="dropdown-item" href="{% url 'chapter01:logout'%}">ログアウト</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

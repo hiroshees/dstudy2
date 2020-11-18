@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block title%}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="h1 m-3 font-weight-normal text-center">{{title}}</h1>
+        <form action="{% url 'chapter01:user_create' %}" method="post" novalidate>
+            {% bootstrap_form form %}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success btn-lg btn-block" >登録</button>
+            <hr>
+            <a href="{% url 'chapter01:login'%}" id="forgot_pswd">ログイン</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

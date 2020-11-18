@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="h1 m-3 font-weight-normal text-center">{{title}}</h1>
+        <form action="{% url 'chapter01:login' %}" method="post" novalidate>
+            {% bootstrap_form form %}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-lg btn-block">ログイン</button>
+            <hr>
+            <a href="{% url 'chapter01:register'%}">ユーザ作成</a>
+            &nbsp;|&nbsp;
+            <a href="{% url 'chapter01:password_reset' %}">パスワードを忘れた方</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

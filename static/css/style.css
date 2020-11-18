@@ -1,0 +1,16 @@
+#title {
+    background-color: blue;
+    color: white;
+}
+#subtitle{
+    background-color: grey;
+    color: white;
+}
+ul.errorlist {
+    padding: 10px;
+}
+ul.errorlist li{
+    list-style :none ;
+    color: red;
+    font-size: 0.8em;
+}

@@ -1,0 +1,42 @@
+{% extends 'bootstrap4/bootstrap4.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+
+{# タイトルタグ #}
+{% block bootstrap4_title %}{% block title %}{% endblock %}{% endblock %}
+
+{# ヘッダー内の追加要素 #}
+{% block bootstrap4_extra_head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?var=2020101905" type="text/css" />
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+{% endblock %}
+
+
+{# メインコンテンツの直前要素 #}
+{% block bootstrap4_before_content %}
+    {% block before_content %}{% endblock %}
+{% endblock %}
+
+{# メインコンテンツ #}
+{% block bootstrap4_content %}
+    {% if user.is_authenticated %}
+        {% include 'elements/navbar_auth.html' %}
+    {% else %}
+        {% include 'elements/navbar.html' %}
+    {% endif %}
+    <div class="container-fluid">
+        <div class="container mt-4">
+            {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+        </div>
+        {% block content %}(no content){% endblock %}
+    </div>
+{% endblock %}
+
+{# メインコンテンツの直後要素 #}
+{% block bootstrap4_after_content %}
+    {% block after_content %}{% endblock %}
+{% endblock %}
